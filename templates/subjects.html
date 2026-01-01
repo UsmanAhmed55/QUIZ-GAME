@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Subject</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="card">
+  <h2>Select Subject</h2>
+
+  {% for subject in subjects %}
+    <a href="/quiz/{{ subject }}" class="option">{{ subject }}</a>
+  {% endfor %}
+
+</div>
+
+</body>
+</html>

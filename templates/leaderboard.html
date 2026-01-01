@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="card">
+  <h2>Leaderboard 🏆</h2>
+
+  {% for user in leaderboard %}
+    <p>{{ user.name }} | {{ user.subject }} | Score: {{ user.score }}</p>
+  {% endfor %}
+
+  <br>
+  <a href="/" class="option">Play Again</a>
+</div>
+
+</body>
+</html>
