@@ -1,39 +1,161 @@
+/* ===== GLOBAL SETTINGS ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
 body {
-  background: linear-gradient(120deg,#0f2027,#203a43,#2c5364);
-  font-family: Arial;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: white;
-  text-align: center;
 }
 
+/* ===== MAIN CARD ===== */
 .card {
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
-  border-radius: 15px;
-  width: 50%;
-  margin: auto;
-  box-shadow: 0 0 20px cyan;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 35px 30px;
+  border-radius: 22px;
+  width: 420px;
+  max-width: 90%;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.8s ease;
 }
 
-.option {
-  display: block;
-  padding: 10px;
-  margin: 8px;
-  background: #111;
-  border-radius: 10px;
-  cursor: pointer;
+/* ===== HEADINGS ===== */
+.card h1, .card h2, .card h3 {
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px cyan;
 }
 
-.option:hover {
-  background: cyan;
-  color: black;
-  transform: scale(1.05);
-}
+.card h1 { font-size: 28px; }
+.card h2 { font-size: 26px; }
+.card h3 { font-size: 20px; }
 
-button {
-  padding: 10px 20px;
+/* ===== INPUT FIELDS ===== */
+input[type="text"] {
+  width: 90%;
+  padding: 14px;
+  border-radius: 30px;
   border: none;
-  border-radius: 20px;
-  background: lime;
+  outline: none;
+  font-size: 15px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+/* ===== BUTTONS ===== */
+button {
+  margin-top: 22px;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #00ffcc, #00ccff);
+  color: black;
   cursor: pointer;
   font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s ease;
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.8);
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 1);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* ===== SUBJECT & QUIZ OPTIONS ===== */
+.option {
+  display: block;
+  width: 85%;
+  margin: 15px auto;
+  padding: 16px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(0, 204, 255, 0.3));
+  border-radius: 35px;
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  transition: all 0.4s ease;
+  box-shadow:
+    0 0 15px rgba(0, 255, 255, 0.5),
+    0 0 30px rgba(0, 255, 255, 0.2) inset;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.option input[type="radio"] {
+  display: none; /* hide radio buttons for quiz options */
+}
+
+/* Hover / glow */
+.option:hover {
+  background: linear-gradient(135deg, #00ffcc, #00ccff);
+  color: black;
+  transform: scale(1.1) rotateX(5deg);
+  box-shadow:
+    0 0 25px #00ffcc,
+    0 0 50px #00ffcc inset,
+    0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Active click effect */
+.option:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 20px #00ffcc inset;
+}
+
+/* ===== HINT & SCORE ===== */
+.card p {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #bdf0ff;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .card { padding: 25px 20px; }
+  .card h1, .card h2 { font-size: 24px; }
+  .card h3, .option { font-size: 16px; padding: 13px; }
+  button { font-size: 14px; padding: 12px 28px; }
+}
+/* Selected radio option */
+.option input[type="radio"]:checked + span {
+  background: linear-gradient(135deg, #00ffcc, #00ccff);
+  color: black;
+  box-shadow: 
+    0 0 30px #00ffcc,
+    0 0 50px #00ffcc inset,
+    0 5px 15px rgba(0,0,0,0.2);
+  transform: scale(1.1);
 }

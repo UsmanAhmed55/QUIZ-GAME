@@ -4,6 +4,9 @@
   <title>{{ subject }} Quiz</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
+  
+
 <body>
 
 <div class="card">
@@ -13,9 +16,10 @@
   <form method="post">
     {% for opt in question.options %}
       <label class="option">
-        <input type="radio" name="answer" value="{{ opt }}" required>
-        {{ opt }}
-      </label>
+  <input type="radio" name="answer" value="{{ opt }}" required>
+  <span>{{ opt }}</span>
+</label>
+
     {% endfor %}
 
     <p><b>Hint:</b> {{ question.hint }}</p>
